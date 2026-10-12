@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | STI Conference</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">ST</span><span>STI Conference</span></a>
+    <nav aria-label="Main navigation"><a href="index.html">Home</a><a class="active" href="register.html">Register</a></nav>
+  </header>
+
+  <main class="form-page">
+    <div class="form-heading"><p class="eyebrow">TAKE PART</p><h1>Conference registration</h1><p class="muted">Complete the form below to reserve your place. Your fee estimate updates as you make selections.</p></div>
+    <form id="registrationForm" action="process.php" method="POST" novalidate>
+      <section class="form-section">
+        <h2><span>01</span> Personal information</h2>
+        <div class="form-grid">
+          <label>Full name <input type="text" name="full_name" id="fullName" placeholder="e.g. Mary Wanjiku" required></label>
+          <label>Admission / registration number <input type="text" name="admission_no" id="admissionNo" placeholder="e.g. BIT/1234/2026" required></label>
+          <label>Email address <input type="email" name="email" id="email" placeholder="you@example.com" required></label>
+          <label>Phone number <input type="tel" name="phone" id="phone" inputmode="numeric" maxlength="10" placeholder="0712345678" required></label>
+          <label>Year of study
+            <select name="year_of_study" id="yearOfStudy" required>
+              <option value="">Select year</option><option value="1">Year 1</option><option value="2">Year 2</option><option value="3">Year 3</option><option value="4">Year 4</option><option value="5">Year 5</option><option value="6">Year 6</option>
+            </select>
+          </label>
+          <label>Number of conference days
+            <select name="days" id="days" required><option value="1">1 day</option><option value="2" selected>2 days</option><option value="3">3 days</option></select>
+          </label>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <h2><span>02</span> Choose your package</h2>
+        <div class="form-grid">
+          <label>Participation category
+            <select name="category" id="category" required>
+              <option value="">Select category</option><option value="conference">Conference Only</option><option value="workshop">Workshop Participant</option>
+            </select>
+          </label>
+          <label>Meal option
+            <select name="meal" id="meal" required><option value="no">No lunch</option><option value="yes">Include lunch</option></select>
+          </label>
+        </div>
+        <div class="conditional-panel" id="workshopPanel" hidden>
+          <label>Choose a workshop
+            <select name="workshop" id="workshop">
+              <option value="">Select a workshop</option><option value="Web Development">Web Development</option><option value="Cybersecurity Basics">Cybersecurity Basics</option><option value="Data Analytics">Data Analytics</option>
+            </select>
+          </label>
+          <p class="hint">Workshop participation costs KSh 750.</p>
+        </div>
+        <div class="conditional-panel" id="mealPanel">
+          <p class="hint">Lunch costs KSh 300 per day when selected.</p>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <h2><span>03</span> Your fee estimate</h2>
+        <div class="fee-breakdown">
+          <div><span>Registration fee</span><strong id="registrationLine">KSh 1,000</strong></div>
+          <div><span>Attendance (<span id="dayCount">2</span> days)</span><strong id="attendanceLine">KSh 1,000</strong></div>
+          <div><span>Workshop</span><strong id="workshopLine">KSh 0</strong></div>
+          <div><span>Lunch</span><strong id="mealLine">KSh 0</strong></div>
+          <div class="discount-row"><span>3-day discount (10%)</span><strong id="discountLine">− KSh 0</strong></div>
+          <div class="fee-total"><span>Total payable</span><strong id="totalFee">KSh 2,000</strong></div>
+        </div>
+        <p class="hint">Individual requirement for admission number ending in 0: a 10% discount applies to the registration and attendance subtotal when attending all 3 days.</p>
+      </section>
+      <div id="formMessage" class="form-message" role="alert" aria-live="polite"></div>
+      <div class="form-actions"><a class="text-link" href="index.html">← Back home</a><button class="button" type="submit">Submit registration →</button></div>
+    </form>
+  </main>
+  <footer><span>© 2026 Student Technology &amp; Innovation Conference</span><span>Registration CAT project</span></footer>
+</body>
+</html>
